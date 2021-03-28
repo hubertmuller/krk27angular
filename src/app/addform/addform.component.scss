@@ -1,0 +1,54 @@
+
+input[type=text], select, textarea, input[type=submit] {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  margin: 5px 0 10px 0;
+  font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+  background-color: #f88;
+}
+
+label, legend {
+  font-weight: 600;
+}
+
+fieldset > label {
+  font-weight: normal;
+}
+
+input[type=checkbox], input[type='radio'] {
+  width: 1em;
+  height: 1em;
+}
+
+legend {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+
+}
+
+.noerror {
+  display: none;
+}
+
+.error {
+  background-color: #ff8888;
+  display: block;
+}
+
+select.noerror, textarea.noerror, input.noerror {
+  display: block;
+}
+
+select.error, textarea.error, input.error {
+  background-color: #ff8888;
+}

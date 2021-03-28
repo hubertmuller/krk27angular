@@ -3,9 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListaComponent } from "./lista/lista.component";
 import {DetaleComponent} from "./detale/detale.component";
 import {BladComponent} from "./blad/blad.component";
+import {AddformComponent} from "./addform/addform.component";
 
 const routes: Routes = [
-  { path: 'list', component: ListaComponent},
+  { path: 'list', component: ListaComponent, children: [
+      { path: 'addform', component: AddformComponent},
+    ]
+  },
   { path: 'detale/:id', component: DetaleComponent},
   { path: '', redirectTo: '/list', pathMatch: 'full'},
   { path: '**', component: BladComponent},

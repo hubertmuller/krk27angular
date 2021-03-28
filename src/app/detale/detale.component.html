@@ -1,5 +1,5 @@
 <div *ngIf="szczepionka">
-<h1>Detale {{szczepionka.id}}</h1>
+<h1>Detale {{szczepionka.name}}</h1>
 
 <table>
   <tr>
@@ -8,7 +8,7 @@
   </tr>
   <tr>
     <td>Cena</td>
-    <td>{{szczepionka.details.price}}</td>
+    <td><app-minidetal [cena]="szczepionka.details.price"></app-minidetal></td>
   </tr>
   <tr>
     <td>Kraj</td>

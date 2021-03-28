@@ -1,0 +1,60 @@
+<h1>Zapisz się</h1>
+
+<span (click)="ustaw()">Ustaw</span>
+{{ forma.controls.imie.value }}
+{{ forma.controls.nazwisko.value }}
+
+<form [formGroup]="forma" action="index.html" method="post" name="forma">
+  <div>
+    <label for="imieid">Imie</label>
+    <input formControlName="imie" type="text" size="30" placeholder="np. Adam" name="imie" id="imieid" maxlength="40" accesskey="i" tabindex="1">
+  </div>
+  <div>
+    <label for="nazwiskoid">Nazwisko</label>
+    <input formControlName="nazwisko" type="text" size="50" value="" placeholder="np. Kowalski" name="nazwisko" id="nazwiskoid" maxlength="50" accesskey="n" tabindex="2">
+  </div>
+  <div>
+    <fieldset>
+      <legend>Płeć:</legend>
+      <input type="radio" id="kobietaid" value="k" name="plec">
+      <label for="kobietaid">kobieta</label>
+      <input type="radio" id="mezczyznaid" value="m" name="plec">
+      <label for="mezczyznaid">mężczyzna</label>
+    </fieldset>
+    <div id="plecError" class="noerror">
+      Musisz wybrac plec
+    </div>
+  </div>
+  <div>
+    <fieldset>
+      <legend>Życzenia:</legend>
+      <input type="checkbox" id="zostacid" value="z" name="zyczenia">
+      <label for="zostacid">chcę zostać 1 godzinę</label>
+      <input type="checkbox" id="potwierdzid" value="p" name="zyczenia">
+      <label for="potwierdzid">chcę dostać potwierdzenie</label>
+    </fieldset>
+    <div id="zyczeniaError" class="noerror">
+      Musisz wybrac zyczenie
+    </div>
+  </div>
+  <div>
+    <label for="typid">Typ szczepionki</label>
+    <select id="typid" name="typ">
+      <option disabled selected value> Wybierz </option>
+      <option value="1">Pfizer</option>
+      <option value="2">Novavax</option>
+    </select>
+    <div id="typError" class="noerror">
+      Musisz wybrac typ
+    </div>
+  </div>
+  <div>
+    <label for="komentarzid">Komentarz</label><br>
+    <textarea rows="10" cols="40" id="komentarzid" name="komentarze"></textarea>
+  </div>
+  <div>
+    <input type="submit" value="Zapisz">
+
+  </div>
+
+</form>
