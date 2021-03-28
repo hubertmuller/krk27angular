@@ -16,3 +16,20 @@ caption {
   border-bottom-width: 0;
   font-weight: 600;
 }
+
+tr:nth-child(odd) {
+  background-color: #ff000038;
+}
+
+tr:nth-child(even) {
+  background-color: #00ff0038;
+}
+
+tr:hover {
+  background-color: #fff;
+}
+
+th {
+  background-color: #0000ff88;;
+}
+

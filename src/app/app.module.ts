@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListaComponent } from './lista/lista.component';
 import { DetaleComponent } from './detale/detale.component';
 import { BladComponent } from './blad/blad.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BladComponent } from './blad/blad.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

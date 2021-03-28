@@ -5,19 +5,37 @@ const server = http.createServer( (req, res) => {
   res.statusCode = 200;
   //res.setHeader('Content-type', 'text/plain');
   res.setHeader('Content-type', 'application/json');
-  let test = Math.random();
+  res.setHeader('Access-Control-Allow-Origin','*');
+  let cena = () => Math.round(Math.random() * 300) + 10;
+
   res.end(`[
     {
     "id": 1,
     "name": "Pfizer",
-    details: {
-      "price": 200, "country": "us"
+    "details": {
+      "price": ${cena()}, "country": "us"
+      }
     },
     {
     "id": 2,
     "name": "Novavax",
-    details: {
-      "price": 220, "country": "gb"
+    "details": {
+      "price": ${cena()}, "country": "gb"
+    }
+    },
+    {
+    "id": 3,
+    "name": "Johnson & Johnson",
+    "details": {
+      "price": ${cena()}, "country": "gb"
+    }
+    },
+    {
+    "id": 4,
+    "name": "Astra Zeneca",
+    "details": {
+      "price": ${cena()}, "country": "gb"
+    }
     }
   ]`);
 });
