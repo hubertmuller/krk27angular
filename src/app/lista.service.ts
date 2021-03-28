@@ -17,10 +17,14 @@ export interface SzczepionkaDetails {
   providedIn: 'root'
 })
 export class ListaService {
-
-  constructor(private http: HttpClient) { }
+  public sid;
+  constructor(private http: HttpClient) {
+    this.sid = Math.random();
+    console.log('STARTUJE SERWIS=' + this.sid);
+  }
 
   load(): Observable<Szczepionka[]> {
+    console.log('id service=' + this.sid);
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
     return this.http.get<Szczepionka[]>('http://localhost:3200', {headers: myHeaders});
