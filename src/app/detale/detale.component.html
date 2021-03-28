@@ -1,4 +1,5 @@
-<h1>Detale {{id}}</h1>
+<div *ngIf="szczepionka">
+<h1>Detale {{szczepionka.id}}</h1>
 
 <table>
   <tr>
@@ -6,9 +7,14 @@
     <th>Opis</th>
   </tr>
   <tr>
-    <td>nazwa</td>
-    <td>wartosc</td>
+    <td>Cena</td>
+    <td>{{szczepionka.details.price}}</td>
+  </tr>
+  <tr>
+    <td>Kraj</td>
+    <td>{{szczepionka.details.country}}</td>
   </tr>
 </table>
 
 <a [routerLink]="['/list']">Zamknij</a>
+</div>

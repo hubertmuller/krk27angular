@@ -29,6 +29,11 @@ tr:hover {
   background-color: #fff;
 }
 
+tr:nth-child(odd):hover {
+  background-color: #fff;
+}
+
+
 th {
   background-color: #0000ff88;;
 }
