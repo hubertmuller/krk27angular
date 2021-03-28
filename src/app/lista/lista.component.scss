@@ -1,15 +1,13 @@
-* {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  box-sizing: border-box;
-}
-
 table {
   border-collapse: collapse;
   border: 1px solid #aaa;
+  width: 100%;
 }
+
 
 td, th, caption {
   padding: 0.5rem;
+  border: 1px solid #aaa;
 }
 
 caption {
