@@ -52,3 +52,27 @@ select.noerror, textarea.noerror, input.noerror {
 select.error, textarea.error, input.error {
   background-color: #ff8888;
 }
+
+input[type=text].ng-touched.ng-invalid  {
+  border: 1px solid red;
+}
+
+form.ng-dirty {
+  input[type=radio].ng-invalid ~ div {
+    background-color: #ff8888;
+    display: block;
+  }
+  fieldset.ng-invalid > div {
+    background-color: #ff8888;
+    display: block;
+  }
+}
+
+form.ng-dirty select.ng-invalid ~ div {
+  background-color: #ff8888;
+  display: block;
+}
+
+input[type=text].ng-touched.ng-invalid  {
+  border: 1px solid red;
+}

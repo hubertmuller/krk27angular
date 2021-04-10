@@ -1,8 +1,21 @@
-<h1>Zapisz się</h1>
+<h1>Zapisz się {{500 | przelicz:3.2}}</h1>
 
 <span (click)="ustaw()">Ustaw</span>
+<pre>
+{{ forma.value | json }}
+</pre>
+<pre zaznaczenie>
+{{ forma.valid| json }}
+</pre>
+
+<pre>
+{{ forma.controls.plec.errors | json }}
+{{ forma.controls.imie.errors | json }}
+  {{ forma.controls.typ.errors | json }}
+</pre>
 {{ forma.controls.imie.value }}
 {{ forma.controls.nazwisko.value }}
+{{ forma.controls.zyczenia[0]}}
 
 <form [formGroup]="forma" action="index.html" method="post" name="forma">
   <div>
@@ -11,38 +24,40 @@
   </div>
   <div>
     <label for="nazwiskoid">Nazwisko</label>
-    <input formControlName="nazwisko" type="text" size="50" value="" placeholder="np. Kowalski" name="nazwisko" id="nazwiskoid" maxlength="50" accesskey="n" tabindex="2">
+    <input formControlName="nazwisko" type="text" size="50" value="" placeholder="np. Kowalski" name="nazwisko" id="nazwiskoid" accesskey="n" tabindex="2">
   </div>
   <div>
     <fieldset>
       <legend>Płeć:</legend>
-      <input type="radio" id="kobietaid" value="k" name="plec">
+      <input formControlName="plec" type="radio" id="kobietaid" value="k" name="plec">
       <label for="kobietaid">kobieta</label>
-      <input type="radio" id="mezczyznaid" value="m" name="plec">
+      <input formControlName="plec" type="radio" id="mezczyznaid" value="m" name="plec">
       <label for="mezczyznaid">mężczyzna</label>
+      <div id="plecError" class="noerror">
+        Musisz wybrac plec
+      </div>
     </fieldset>
-    <div id="plecError" class="noerror">
-      Musisz wybrac plec
-    </div>
+
   </div>
   <div>
-    <fieldset>
+    <fieldset [formGroup]="forma.controls.zyczenia">
       <legend>Życzenia:</legend>
-      <input type="checkbox" id="zostacid" value="z" name="zyczenia">
+      <input formControlName="a" type="checkbox" id="zostacid" value="z" >
       <label for="zostacid">chcę zostać 1 godzinę</label>
-      <input type="checkbox" id="potwierdzid" value="p" name="zyczenia">
+      <input formControlName="b" type="checkbox" id="potwierdzid" value="p" >
       <label for="potwierdzid">chcę dostać potwierdzenie</label>
+      <div id="zyczeniaError" class="noerror">
+        Musisz wybrac zyczenie {{forma.controls.zyczenia.errors?.coszle}}
+      </div>
     </fieldset>
-    <div id="zyczeniaError" class="noerror">
-      Musisz wybrac zyczenie
-    </div>
+
   </div>
   <div>
     <label for="typid">Typ szczepionki</label>
-    <select id="typid" name="typ">
-      <option disabled selected value> Wybierz </option>
-      <option value="1">Pfizer</option>
-      <option value="2">Novavax</option>
+    <select formControlName="typ" id="typid" name="typ">
+      <option [ngValue]="null" disabled selected value> Wybierz </option>
+      <option [ngValue]="1">Pfizer</option>
+      <option [ngValue]="2">Novavax</option>
     </select>
     <div id="typError" class="noerror">
       Musisz wybrac typ
@@ -50,7 +65,7 @@
   </div>
   <div>
     <label for="komentarzid">Komentarz</label><br>
-    <textarea rows="10" cols="40" id="komentarzid" name="komentarze"></textarea>
+    <textarea formControlName="komentarze" rows="10" cols="40" id="komentarzid" name="komentarze"></textarea>
   </div>
   <div>
     <input type="submit" value="Zapisz">

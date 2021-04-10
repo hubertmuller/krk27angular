@@ -8,8 +8,9 @@ import { DetaleComponent } from './detale/detale.component';
 import { BladComponent } from './blad/blad.component';
 import { HttpClientModule } from "@angular/common/http";
 import { MinidetalComponent } from './minidetal/minidetal.component';
-import { AddformComponent } from './addform/addform.component';
+import {AddformComponent, MyDirective, MyPipe} from './addform/addform.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     DetaleComponent,
     BladComponent,
     MinidetalComponent,
-    AddformComponent
+    AddformComponent,
+    MyDirective,
+    MyPipe,
+    UpdateFormComponent
   ],
   imports: [
     ReactiveFormsModule,

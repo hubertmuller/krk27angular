@@ -5,7 +5,7 @@
     <td>{{szczepionka.id}}</td>
     <td>{{szczepionka.name}}</td>
     <td><a [routerLink]="['/detale', szczepionka.id]">wiecej</a>
-      <app-minidetal [cena]="szczepionka.details.price"></app-minidetal>
+      <app-minidetal [cena]="szczepionka.details.price"> </app-minidetal>
     </td>
   </tr>
 </table>
@@ -13,5 +13,5 @@
 <h3 *ngIf="!szczepionki">Właśnie łąduję sczepionki...</h3>
 
 <a [routerLink]="['/list', 'addform']" >Zapisz się</a>
-
+<a [routerLink]="['/list', 'updateform', 19]" >Aktualizuj</a>
 <router-outlet></router-outlet>
