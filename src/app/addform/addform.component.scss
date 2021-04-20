@@ -52,3 +52,7 @@ select.noerror, textarea.noerror, input.noerror {
 select.error, textarea.error, input.error {
   background-color: #ff8888;
 }
+
+input[type=text].ng-touched.ng-invalid {
+  border: 1px solid red;
+}

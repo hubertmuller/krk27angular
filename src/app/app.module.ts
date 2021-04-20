@@ -8,7 +8,7 @@ import { DetaleComponent } from './detale/detale.component';
 import { BladComponent } from './blad/blad.component';
 import { HttpClientModule } from "@angular/common/http";
 import { MinidetalComponent } from './minidetal/minidetal.component';
-import { AddformComponent } from './addform/addform.component';
+import {AddformComponent, PrzeliczPipe} from './addform/addform.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
@@ -18,7 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     DetaleComponent,
     BladComponent,
     MinidetalComponent,
-    AddformComponent
+    AddformComponent,
+    PrzeliczPipe,
   ],
   imports: [
     ReactiveFormsModule,
