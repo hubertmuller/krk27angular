@@ -17,12 +17,11 @@ export class MyValidator{
 
       // implementacja sprawdzenia
 
-      if (control.value >= min && control.value <=max) ok = true;
+      if (control.value >= min && control.value <= max) ok = true;
 
       if (!ok) {
-        console.log('zle');
         return {
-          mabycpomiedzy: 'liczba jest inna niz oczekiwana'
+          mabyc: 'liczba jest inna niz oczekiwana'
         }
       } else {
         return null;

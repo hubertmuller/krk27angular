@@ -21,8 +21,8 @@
       <li *ngIf="forma.controls.imie.errors.required != null">
         Pole wymagane
       </li>
-      <li *ngIf="forma.controls.imie.errors.mabycpomiedzy != null">
-        Przekroczona wartosc
+      <li *ngIf="forma.controls.imie.errors.mabyc != null">
+        {{forma.controls.imie.errors.mabyc}}
       </li>
     </ul>
 
