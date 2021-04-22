@@ -4,6 +4,8 @@
 
 <pre>
 {{ forma.value | json }}
+
+  {{ forma.controls.imie.errors | json}}
 </pre>
 
 
@@ -18,6 +20,9 @@
       </li>
       <li *ngIf="forma.controls.imie.errors.required != null">
         Pole wymagane
+      </li>
+      <li *ngIf="forma.controls.imie.errors.mabycpomiedzy != null">
+        Przekroczona wartosc
       </li>
     </ul>
 

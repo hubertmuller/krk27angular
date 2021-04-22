@@ -11,15 +11,18 @@ export class PrzeliczPipe {
 }
 
 export class MyValidator{
-  static konfiguruj(min: number, max: number) {
+  static mabycpomiedzy(min: number, max: number) {
     return function (control: FormControl) {
       let ok = false;
 
       // implementacja sprawdzenia
 
+      if (control.value >= min && control.value <=max) ok = true;
+
       if (!ok) {
+        console.log('zle');
         return {
-          coszle: 'liczba jest inna niz oczekiwana'
+          mabycpomiedzy: 'liczba jest inna niz oczekiwana'
         }
       } else {
         return null;
@@ -38,7 +41,7 @@ export class AddformComponent implements OnInit {
 
   forma: FormGroup = new FormGroup( {
     imie: new FormControl(null, {
-      validators: [Validators.maxLength(5), Validators.required, MyValidator.konfiguruj(1,10)],
+      validators: [Validators.maxLength(5), Validators.required, MyValidator.mabycpomiedzy(1,10)],
       updateOn: "change"
     }),
     nazwisko: new FormControl('Nowak', Validators.maxLength(15)),
