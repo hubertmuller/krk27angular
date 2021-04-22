@@ -11,7 +11,7 @@
 </table>
 
 <h3 *ngIf="!szczepionki">Właśnie łąduję sczepionki...</h3>
-
-<a [routerLink]="['/list', 'addform']" >Zapisz się</a>
-
+<p>
+<a [routerLink]="['/list', 'addform']" >Zapisz się</a> - <a [routerLink]="['/list', 'updateform','19']" >Aktualizuj</a>
+</p>
 <router-outlet></router-outlet>

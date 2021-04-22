@@ -1,12 +1,22 @@
-<h1>Zapisz się</h1>
+<h1>{{tytul}}</h1>
 
-<span (click)="ustaw()">Ustaw</span>
 
+
+<div>
+WArtosci formy:
 <pre>
 {{ forma.value | json }}
-
-  {{ forma.controls.imie.errors | json}}
 </pre>
+</div>
+
+<div>
+  Bledy calej formy:
+<pre>
+  {{ forma.valid }}
+</pre>
+</div>
+
+{{ forma.controls.imie.errors | json}}
 
 
 <form [formGroup]="forma" action="index.html" method="post" name="forma">
@@ -71,7 +81,8 @@
     <textarea formControlName="komentarze" rows="10" cols="40" id="komentarzid" name="komentarze"></textarea>
   </div>
   <div>
-    <input type="submit" value="Zapisz">
+    <input (click)="zapisz()" type="submit" value="Zapisz" [attr.disabled]="!forma.valid ? 'disabled' : null">
+
 
   </div>
 

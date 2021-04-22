@@ -1,5 +1,8 @@
-import {Component, OnInit, Pipe} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnDestroy, OnInit, Pipe} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Czlowiek, ListaService} from "../lista.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Pipe({
   name: "przelicz"
@@ -36,7 +39,7 @@ export class MyValidator{
   templateUrl: './addform.component.html',
   styleUrls: ['./addform.component.scss']
 })
-export class AddformComponent implements OnInit {
+export class AddformComponent implements OnInit, OnDestroy {
 
   forma: FormGroup = new FormGroup( {
     imie: new FormControl(null, {
@@ -53,17 +56,54 @@ export class AddformComponent implements OnInit {
       }
     ),
     typ: new FormControl(null, Validators.required),
-    komentarze: new FormControl('chialbym aby ...', Validators.maxLength(150))
+    komentarze: new FormControl('chcialbym aby ...', Validators.maxLength(150))
 
   }
-  )
+  );
 
-  constructor() { }
+  params: Params;
+
+  tytul: String = 'Zapisz się';
+
+  sub1: Subscription;
+
+  constructor(protected listaService: ListaService, private route: ActivatedRoute, public router: Router) {
+    this.sub1 = this.route.params.subscribe( (params: Params) => {
+      this.params = params;
+      console.log(params);
+    });
+  }
 
   ngOnInit(): void {
+
   }
 
-  public ustaw() {
+  ngOnDestroy(): void {
+    console.log('destroy');
+    this.sub1.unsubscribe();
+  }
+
+  public zapisz() {
+    const forma: {[p: string]: AbstractControl} = this.forma.controls;
+    let czlowiek: Czlowiek = {
+      imie: forma.imie.value,
+      nazwisko: forma.nazwisko.value,
+      plec: forma.plec.value,
+      komentarze: forma.komentarze.value,
+      typ: forma.typ.value,
+      zyczenia: {
+        a: forma.zyczenia.value.a,
+        b: forma.zyczenia.value.b,
+      }
+    }
+
+
+    this.listaService.addCzlowiek(czlowiek).subscribe( () => {
+      console.log('udalo sie zapisac czlowieka');
+      alert('udalo sie zapisac czlowieka');
+      this.router.navigate(['/']);
+    })
+
 
   }
 
