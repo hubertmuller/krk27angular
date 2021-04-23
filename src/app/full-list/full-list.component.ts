@@ -13,16 +13,23 @@ export class FullListComponent implements OnInit {
 
   public ludzie: Czlowiek[];
 
+  protected sub: Subscription;
+
   constructor(private listaService: ListaService) {
 
   }
 
   ngOnInit(): void {
-    this.loadSubscription = this.listaService.loadLudzie().subscribe( (ludzie) => {
-        console.log(ludzie);
+    this.sub = this.loadSubscription = this.listaService.loadLudzie().subscribe( (ludzie) => {
+        console.log('dane z serwisu lista ludzi:', ludzie);
         this.ludzie = ludzie;
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    console.log('zniszczenie komponentu Listy ludzi');
+    this.sub.unsubscribe();
   }
 
 }

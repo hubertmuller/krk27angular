@@ -1,23 +1,27 @@
 <h1>{{tytul}}</h1>
 
+<p>
+<button (click)="przelaczWidokKontrolnyFormy()">Pokaż/Schowaj stan Formy</button>
+</p>
+
+<div *ngIf="debug">
+  <div>
+  Wartosci formy:
+  <pre>{{ forma.value | json }}</pre>
+  </div>
+
+  <div>
+    Czy cala forma jest prawidlowa:
+  <pre>{{ forma.valid }}</pre>
+  </div>
+
+  <div>
+    Bledy pola imie:
+    <pre>{{ forma.controls.imie.errors | json}}</pre>
+  </div>
 
 
-<div>
-WArtosci formy:
-<pre>
-{{ forma.value | json }}
-</pre>
 </div>
-
-<div>
-  Bledy calej formy:
-<pre>
-  {{ forma.valid }}
-</pre>
-</div>
-
-{{ forma.controls.imie.errors | json}}
-
 
 <form [formGroup]="forma" action="index.html" method="post" name="forma">
   <div>

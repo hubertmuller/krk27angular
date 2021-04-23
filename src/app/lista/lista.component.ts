@@ -20,10 +20,14 @@ export class ListaComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSubscription = this.listaService.load().subscribe( (szczepionki) => {
-        console.log(szczepionki);
+        console.log('dane z serwisu lista szczepionek:', szczepionki);
         this.szczepionki = szczepionki;
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.loadSubscription.unsubscribe();
   }
 
 }

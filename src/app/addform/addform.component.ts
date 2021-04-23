@@ -44,7 +44,7 @@ export class AddformComponent implements OnInit, OnDestroy {
   forma: FormGroup = new FormGroup( {
     id: new FormControl(),
     imie: new FormControl(null, {
-      validators: [Validators.maxLength(5), Validators.required, MyValidator.mabycpomiedzy(1,10)],
+      validators: [Validators.maxLength(15), Validators.required], //nasz walidator: MyValidator.mabycpomiedzy(1,10)
       updateOn: "change"
     }),
     nazwisko: new FormControl('Nowak', Validators.maxLength(15)),
@@ -62,16 +62,20 @@ export class AddformComponent implements OnInit, OnDestroy {
   }
   );
 
+  debug = false;
+
   params: Params;
 
   tytul: String = 'Zapisz się';
 
-  sub1: Subscription;
+  protected sub1: Subscription;
+
+  protected sub2: Subscription;
 
   constructor(protected listaService: ListaService, private route: ActivatedRoute, public router: Router) {
     this.sub1 = this.route.params.subscribe( (params: Params) => {
       this.params = params;
-      console.log(params);
+      console.log('parametry routingu dla komponentu add/update', params);
     });
   }
 
@@ -80,8 +84,9 @@ export class AddformComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('destroy');
+    console.log('zniszczenie komponentu AddForm/Update');
     this.sub1.unsubscribe();
+    this.sub2?.unsubscribe();
   }
 
   public zapisz() {
@@ -99,14 +104,15 @@ export class AddformComponent implements OnInit, OnDestroy {
       }
     }
 
-
-    this.listaService.addCzlowiek(czlowiek).subscribe( () => {
-      console.log('udalo sie zapisac czlowieka');
+    this.sub1 = this.listaService.addCzlowiek(czlowiek).subscribe( () => {
+      console.log('udalo sie zapisac czlowieka', czlowiek);
       alert('udalo sie zapisac czlowieka');
       this.router.navigate(['/']);
     })
+  }
 
-
+  public przelaczWidokKontrolnyFormy(): void {
+    this.debug = !this.debug;
   }
 
 }
