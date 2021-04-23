@@ -55,14 +55,14 @@ export class ListaService {
     console.log('dodawanie czlowieka, id service=' + this.sid, czlowiek);
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
-    return this.http.put<Czlowiek>(environment.endPointUrl+'czlowiek', czlowiek,{headers: myHeaders});
+    return this.http.post<Czlowiek>(environment.endPointUrl+'czlowiek', czlowiek,{headers: myHeaders});
   }
 
   updateCzlowiek(czlowiek: Czlowiek): Observable<Czlowiek> {
     console.log('aktualizowanie czlowieka, id service=' + this.sid, czlowiek);
     const myHeaders = new HttpHeaders();
     myHeaders.append('Accept', 'application/json');
-    return this.http.post<Czlowiek>(environment.endPointUrl+'czlowiek', czlowiek,{headers: myHeaders});
+    return this.http.put<Czlowiek>(environment.endPointUrl+'czlowiek', czlowiek,{headers: myHeaders});
   }
 
   getCzlowiek(id: string): Observable<Czlowiek> {
