@@ -104,7 +104,7 @@ export class AddformComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.sub1 = this.listaService.addCzlowiek(czlowiek).subscribe( () => {
+    this.sub1 = this.listaService.addCzlowiek(czlowiek).subscribe( (c) => {
       console.log('udalo sie zapisac czlowieka', czlowiek);
       alert('udalo sie zapisac czlowieka');
       this.router.navigate(['/']);
