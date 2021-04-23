@@ -44,6 +44,13 @@ export class ListaService {
     return this.http.get<Szczepionka[]>(environment.endPointUrl, {headers: myHeaders});
   }
 
+  loadLudzie(): Observable<Czlowiek[]> {
+    console.log('id service=' + this.sid);
+    const myHeaders = new HttpHeaders();
+    myHeaders.append('Accept', 'application/json');
+    return this.http.get<Czlowiek[]>(environment.endPointUrl+'ludzie', {headers: myHeaders});
+  }
+
   addCzlowiek(czlowiek: Czlowiek): Observable<Czlowiek> {
     console.log('id service=' + this.sid);
     const myHeaders = new HttpHeaders();

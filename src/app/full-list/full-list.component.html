@@ -1,0 +1,12 @@
+<h1>Lista zapisanych</h1>
+<table *ngIf="ludzie">
+  <tr><th>Id</th><th>Imię</th><th>Nazwisko</th><th>Operacja</th></tr>
+  <tr *ngFor="let czlowiek of ludzie">
+    <td>{{czlowiek.id}}</td>
+    <td>{{czlowiek.imie}}</td>
+    <td>{{czlowiek.nazwisko}}</td>
+    <td><a [routerLink]="['..','updateform', czlowiek.id]">Edytuj(Update)</a> - <a [routerLink]="['..', 'delete', czlowiek.id]">Usuń(Delete)</a>
+    </td>
+  </tr>
+</table>
+

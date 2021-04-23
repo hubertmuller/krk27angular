@@ -10,8 +10,8 @@
   </tr>
 </table>
 
-<h3 *ngIf="!szczepionki">Właśnie łąduję sczepionki...</h3>
+<h3 *ngIf="!szczepionki">Właśnie ładuję sczepionki...</h3>
 <p>
-<a [routerLink]="['/list', 'addform']" >Zapisz się</a> - <a [routerLink]="['/list', 'updateform','19']" >Aktualizuj</a>
+<a [routerLink]="['/list', 'addform']" >Zapisz się(ADD)</a> - <a [routerLink]="['/list', 'fulllist']" >Lista ludzi i operacji</a>
 </p>
 <router-outlet></router-outlet>

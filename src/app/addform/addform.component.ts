@@ -42,6 +42,7 @@ export class MyValidator{
 export class AddformComponent implements OnInit, OnDestroy {
 
   forma: FormGroup = new FormGroup( {
+    id: new FormControl(),
     imie: new FormControl(null, {
       validators: [Validators.maxLength(5), Validators.required, MyValidator.mabycpomiedzy(1,10)],
       updateOn: "change"
@@ -86,6 +87,7 @@ export class AddformComponent implements OnInit, OnDestroy {
   public zapisz() {
     const forma: {[p: string]: AbstractControl} = this.forma.controls;
     let czlowiek: Czlowiek = {
+      id: forma.imie.value,
       imie: forma.imie.value,
       nazwisko: forma.nazwisko.value,
       plec: forma.plec.value,

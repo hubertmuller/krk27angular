@@ -49,6 +49,35 @@ const server = http.createServer( (req, res) => {
     }
     }
   ]`);
+  } else if (req.method === 'GET' && req.url === '/api/ludzie') {
+    res.end(`
+    [
+      {
+      "id": 5,
+      "imie": "Andrzej",
+      "nazwisko": "Nowak",
+      "plec": "m",
+      "zyczenia": {
+        "a": true,
+        "b": true
+      },
+      "typ": 2,
+      "komentarze": "prosze o autograf pana pielegniarza"
+      },
+      {
+      "id": 7,
+      "imie": "Stefania",
+      "nazwisko": "Kowalska",
+      "plec": "k",
+      "zyczenia": {
+        "a": false,
+        "b": true
+      },
+      "typ": 1,
+      "komentarze": "chcę pudełko po szczepionce"
+      }
+    ]
+    `);
   } else if (req.method === 'PUT' && req.url.startsWith('/api/czlowiek')) {
     res.end('');
   } else if (req.method === 'POST' && req.url.startsWith('/api/czlowiek')) {
@@ -56,17 +85,17 @@ const server = http.createServer( (req, res) => {
   } else if (req.method === 'GET' && req.url.startsWith('/api/czlowiek')) {
     res.end(`
     {
-  "imie": "Andrzej",
-  "nazwisko": "Nowak",
-  "plec": "m",
-  "zyczenia": {
-    "a": true,
-    "b": true
-  },
-  "typ": 2,
-  "komentarze": "prosze o autograf pana pielegniarza"
-}
-
+    "id": 5,
+    "imie": "Andrzej",
+    "nazwisko": "Nowak",
+    "plec": "m",
+    "zyczenia": {
+      "a": true,
+      "b": true
+    },
+    "typ": 2,
+    "komentarze": "prosze o autograf pana pielegniarza"
+    }
     `);
   } else {
     res.end('');
