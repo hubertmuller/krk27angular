@@ -1,0 +1,7 @@
+<div *ngIf="usuniety">
+<h1>Usunięto wybranego człowieka</h1>
+<a [routerLink]="['list']" >Przejdź do listy</a>
+</div>
+
+<h3 *ngIf="!usuniety">Właśnie usuwam czlowieka...</h3>
+

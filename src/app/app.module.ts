@@ -12,6 +12,7 @@ import {AddformComponent, PrzeliczPipe} from './addform/addform.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UpdateformComponent } from './updateform/updateform.component';
 import { FullListComponent } from './full-list/full-list.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FullListComponent } from './full-list/full-list.component';
     PrzeliczPipe,
     UpdateformComponent,
     FullListComponent,
+    DeleteComponent,
   ],
   imports: [
     ReactiveFormsModule,

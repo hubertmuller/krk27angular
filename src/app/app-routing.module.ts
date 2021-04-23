@@ -6,13 +6,14 @@ import {BladComponent} from "./blad/blad.component";
 import {AddformComponent} from "./addform/addform.component";
 import {UpdateformComponent} from "./updateform/updateform.component";
 import {FullListComponent} from "./full-list/full-list.component";
+import {DeleteComponent} from "./delete/delete.component";
 
 const routes: Routes = [
   { path: 'list', component: ListaComponent, children: [
       { path: 'addform', component: AddformComponent},
       { path: 'updateform/:id', component: UpdateformComponent},
       { path: 'fulllist', component: FullListComponent},
-      { path: 'delete/:id', component: FullListComponent},
+      { path: 'delete/:id', component: DeleteComponent},
     ]
   },
   { path: 'detale/:id', component: DetaleComponent},
